@@ -15,18 +15,21 @@ public class SpartansController : Controller
     private readonly ITraineeService _traineeService;
     private readonly IWeekService _weekService;
     private UserManager<Spartan> _userManager;
+    private readonly IRolesService _rolesService;
 
-    public SpartansController(ITraineeService traineeService, IWeekService weekService, UserManager<Spartan> userManager)
+    public SpartansController(ITraineeService traineeService, IWeekService weekService, UserManager<Spartan> userManager, IRolesService rolesService)
     {
         _traineeService = traineeService;
         _weekService = weekService; 
         _userManager = userManager;
+        _rolesService = rolesService;
     }
 
     [Authorize(Roles = "Trainer, Admin")]
     public async Task<IActionResult> Index()
     {
         var currentUser = await _userManager.GetUserAsync(HttpContext.User);
+        
         //var applicationDbContext = _service.Weeks.Include(w => w.Spartan);
         //return View(await applicationDbContext.ToListAsync());
         var spartans = await _traineeService.GetSpartansAsync();
