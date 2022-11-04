@@ -17,8 +17,11 @@ William Stickler
 - [Overview](#overview)
 - [Getting Started](#getting-started)
 - [The Design Process](#the-design-process)
-- [How To Use](#how-to-use)
+- [How To Use The Website](#how-to-use-the-website)
+- [Approach to Testing](#approach-to-testing)
 - [API Documentation](#api-documentation)
+    - [Operations](#operations)
+    - [Paths](#paths)
 
 ---
 <br>
